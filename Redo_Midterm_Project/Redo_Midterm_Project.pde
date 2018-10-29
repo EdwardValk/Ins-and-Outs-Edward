@@ -15,10 +15,29 @@ PImage Noctis;
 PImage Squall;
 PImage Flynn;
 PImage Status;
+PImage Logo;
+PImage Heart;
+PImage Combo;
+PImage Combo2;
+PImage KH2Sora;
+PImage BRAVE;
+PImage The_End;
+PImage Velvet;
+PImage Repede;
+PImage ReynnLann;
+PImage spells;
+PImage NT;
+
 
 int gameState = 0;
 int quizState = 1;
 int rpgState = 2;
+int KhScreenState = 3;
+int KhexplainState = 4;
+int FFScreenState = 5;
+int TalesScreenState = 6;
+int EndState = 7;
+
 
 
 
@@ -28,12 +47,27 @@ void setup() {
   size(1280, 930);
   textAlign(CENTER);
   textSize(36);
-  KHLogo=loadImage("KHLogo.png");
+  Heart=loadImage("Heart.png");
   FFLogo=loadImage("FFLogo.png");
   Talesof=loadImage("Talesof.png");
   Sora=loadImage("Sora.png");
   Cloud=loadImage("Cloud.png");
   Yuri=loadImage("Yuri.png");
+  KHGauge=loadImage("KHGauge.png");
+  Status=loadImage("Status.png");
+  Logo=loadImage("Logo.png");
+  Combo=loadImage("Combo.png");
+  Combo2=loadImage("Combo2.png");
+  KH2Sora=loadImage("KH2Sora.png");
+  Noctis=loadImage("Noctis.png");
+  BRAVE=loadImage("BRAVE.png");
+  The_End=loadImage("The_End.png");
+  Velvet=loadImage("Velvet.png");
+  Repede=loadImage("Repede.png");
+  ReynnLann=loadImage("ReynnLann.png");
+  spells=loadImage("spells.png");
+  NT=loadImage("NT.png");
+  
   
   
   
@@ -45,30 +79,55 @@ void draw() {
     background(0);
     text("What Kind of JRPG Gamer are you?", width/2, height/10);
     text("Press 1, 2, 3, for a specific JRPG.", width/2, height/7);
-    text("1 for Action Oriented-S", width/6, height/1.7);
-    text("2 for Tactical Style-F", width/1.9, height/1.7);
-    text("3 for Both-T", width/1.2, height/1.7);
-  } else if (state=="RPG") 
+    text("1 for Action Oriented", width/6, height/1.7);
+    text("Press S for 1", width/6, height/1.6);
+    text("2 for Tactical Style", width/1.9, height/1.7);
+    text("Press F for 2", width/1.9, height/1.6);
+    text("3 for Both", width/1.2, height/1.7);
+    text("Press T for 3", width/1.2, height/1.6);
+    
+   } 
+ else if (state=="RPG") 
   {
     text("Pick a Game.", width/2, height/3);
   }
   if (key== '1') {
-    image(KHLogo, 100, 530);
+    image(Heart, 100, 580);
     gameState = 1;
   }
     else if (key== 's' && gameState == 1) {
       //println("Hello");
       game();
     }
-  
+     
+     else if (key== 'd' && KhScreenState == 3) { 
+        //println("Hello");
+        KhScreen();
+    }
+    
+    else if (key== 'c' && EndState ==7) {
+      //println("Hello again");
+      End();
+    }
 
   else if (key== '2') {
     image(FFLogo, 225, 600);
     quizState = 2;
   }
-    else if (key== 'f' && quizState ==2) {
+    
+   else if (key== 'f' && quizState ==2) {
       //println("Hello again");
       quiz();
+    }
+    
+     else if (key== 'g' && FFScreenState ==5) {
+      //println("Hello again");
+      FFScreen();
+    }
+    
+    else if (key== 'h' && EndState ==7) {
+      //println("Hello again");
+      End();
     } 
 
   else if (key== '3') {
@@ -79,11 +138,27 @@ void draw() {
   else if (key== 't' && rpgState ==3) {
       //println("Hello once again");
       rpg();
+      
+  }
+      
+      else if (key== 'r' && TalesScreenState ==6) {
+      //println("Hello once again");
+      TalesScreen();
     }
+    
+    else if (key== 'z' && EndState ==7) {
+      //println("Hello again");
+      End();
   
   println ("gameState: " + gameState);
   println ("quizState: " + quizState);
   println ("rpgState: " + rpgState);
+  println ("KhScreenState" + KhScreenState);
+  println ("FFScreenState" + FFScreenState);
+    }
+  println ("TalesScreenState" + TalesScreenState);
+  println ("EndState" + EndState);
+  
 } 
 
 void game() {
@@ -105,6 +180,8 @@ void game() {
   text("while also preforming flashy moves,", width/1.7, height/0.8);
   text("and if you picked 1 you most likely", width/1.7, height/0.6);
   text("watch anime you filthy weeb.", width/1.7, height/0.4);
+  text("Press 'd' to continue.", width/1.2, height/1);
+  
  
 }
 
@@ -120,6 +197,8 @@ void quiz() {
   text("using Libra for enemy weaknesses,", width/1.9, height/2.8);
   text("curing staus ailments, etc.", width/2.1, height/2.5);
   text("(Unless your Andres who doesn't have time for that.)", width/1.8, height/2);
+  text("Press 'g' to continue.", width/1.2, height/1);
+  image(Status, 300, 500);
   
   
 }
@@ -133,7 +212,51 @@ void rpg() {
   text("using a manual and automatic system", width/1.7, height/4.2);
   text("while also performing flashy combos", width/1.7, height/3.7);
   text("with an emersive cast.", width/1.7, height/3.3);
+  text("Press 'r' to continue.", width/1.2, height/1);
 }
+
+void KhScreen() {
+  background(0);
+  image(KHGauge, 50, 100);
+  image(Combo, 50, 250);
+  image(Combo2, 50, 400);
+  image(KH2Sora, 400,470);
+  text("Press 'z' to continue.", width/1.2, height/1);
+}
+
+void FFScreen() {
+  background(0);
+  image(NT, 1, 25);
+  image(Noctis, 480, 100);
+  image(ReynnLann, 500, 550);
+  text("Press 'z' to continue.", width/1.2, height/1);
+
+
+}
+
+void TalesScreen() {
+  background(0);
+  image(BRAVE, 50, 100);
+  image(Velvet, 500, 50);
+  image(Logo, 200, 600);
+  image(Repede, 600, 500);
+  text("Press 'z' to continue.", width/1.2, height/1);
+
+
+}
+
+
+void End() {
+  background(0);
+  image(The_End, 500, 300);
+  text("Press anything to play restart.", width/2, height/8);
+  
+  
+}
+
+
+
+
 
 
 
