@@ -17,7 +17,7 @@ PImage Flynn;
 PImage Status;
 PImage Logo;
 PImage Heart;
-PImage Combo;
+PImage Combo1;
 PImage Combo2;
 PImage KH2Sora;
 PImage BRAVE;
@@ -56,7 +56,7 @@ void setup() {
   KHGauge=loadImage("KHGauge.png");
   Status=loadImage("Status.png");
   Logo=loadImage("Logo.png");
-  Combo=loadImage("Combo.png");
+  Combo1=loadImage("Combo1.png");
   Combo2=loadImage("Combo2.png");
   KH2Sora=loadImage("KH2Sora.png");
   Noctis=loadImage("Noctis.png");
@@ -218,7 +218,7 @@ void rpg() {
 void KhScreen() {
   background(0);
   image(KHGauge, 50, 100);
-  image(Combo, 50, 250);
+  image(Combo1, 50, 250);
   image(Combo2, 50, 400);
   image(KH2Sora, 400,470);
   text("Press 'z' to continue.", width/1.2, height/1);
