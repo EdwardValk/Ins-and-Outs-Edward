@@ -1,7 +1,7 @@
+//Edward Brakye
+// Revision 
+// Ins and Outs
 
-
-//creating a simple game with 3 game states: pregame, game, game over
-//click the mouse to advance the states
 
 PImage KHLogo; 
 PImage FFLogo;
@@ -41,7 +41,7 @@ int EndState = 7;
 
 
 
-String state= "RPG Quiz"; //Creating state variable aclled scene
+String state= "RPG Quiz"; 
 
 void setup() {
   size(1280, 930);
