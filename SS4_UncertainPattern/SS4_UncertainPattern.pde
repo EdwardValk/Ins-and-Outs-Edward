@@ -1,5 +1,7 @@
 // Dragon Ball Seizure
 //Edward Brakye
+// Short Study 4 Revision
+// Key Press for Background Change
 
 float r= 255;
 float g= 255;
